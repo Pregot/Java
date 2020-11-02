@@ -1,0 +1,43 @@
+checks:
+  argument-count:
+    config:
+      threshold: 7
+  complex-logic:
+    config:
+      threshold: 4
+  file-lines:
+    config:
+      threshold: 250
+  method-complexity:
+    config:
+      threshold: 5
+  method-count:
+    config:
+      threshold: 20
+  method-lines:
+    config:
+      threshold: 35
+  nested-control-flow:
+    config:
+      threshold: 4
+  return-statements:
+    config:
+      threshold: 4
+engines:
+  duplication:
+    enabled: true
+  sonar-java:
+    enabled: true
+    channel: beta
+    checks:
+      squid:S00112: # Requires dedicated exceptions even for tests
+        enabled: false
+    config:
+      sonar.java.source: 1.8
+      tests_patterns:
+        - collection_exercises/Naujas aplankas (2)/Naujas aplankas/Naujas aplankas/Naujas aplankas/src/flights/**
+exclude_paths:
+  - build/
+  - fixtures/
+  - gradle/
+  - .gradle/
